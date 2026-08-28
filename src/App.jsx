@@ -8,7 +8,7 @@ import Login from './components/Auth/login/Login';
 import Register from './components/Auth/Register/Register';
 import Notfound from './components/Notfound/Notfound';
 // import { CounterContextProvider } from './components/context/Countercontext';
-import { UserDataProvider } from './components/context/Userdata';
+import { UserDataProvider } from './components/context/UserData';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Postdetails from './components/postdetails/Postdetails';
