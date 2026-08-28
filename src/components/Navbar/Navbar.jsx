@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { UserData } from '../context/Userdata'
+import { UserData } from '../context/UserData'
 
 
 export default function Navbar() {

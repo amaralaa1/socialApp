@@ -3,7 +3,7 @@ import {Button, Modal} from "@heroui/react";
 import axios from 'axios'
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
-import { UserData } from '../context/Userdata';
+import { UserData } from '../context/UserData';
 
 export default function CreatePost() {
 
@@ -12,7 +12,7 @@ let {data:userData} = useContext(UserData)
    let body = useRef();
     let image = useRef();
    const [imgSrc,setimgSrc]= useState(null);
-   
+
     function previewImage(e){
         console.log(e.target.files[0]);
         setimgSrc( URL.createObjectURL(e.target.files[0]))

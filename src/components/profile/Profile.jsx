@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { UserData } from '../context/Userdata'
+import { UserData } from '../context/UserData'
 import axios from 'axios'
 import { useQuery } from '@tanstack/react-query'
 import Postcard from '../Postcard/Postcard'
