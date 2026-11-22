@@ -15,32 +15,3 @@ import {createContext, useState} from 'react';
     
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import {createContext, useState} from 'react';
-
-// export let CounterContext = createContext();
-
-// export function CounterContextProvider({children}){
-    
-//     const [count, setcount] = useState(10);
-
-// return <CounterContext.Provider  value ={{count, setcount}}>
-//     {children} 
-// </CounterContext.Provider>
-
-// }
-

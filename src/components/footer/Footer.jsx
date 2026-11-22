@@ -1,10 +1,29 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Footer() {
-  return <div className='bg-gray-300 text-black text-xl p-3 fixed bottom-0 w-full text-center'>
+  return (
+    <footer className="mt-16 border-t border-white/10 bg-[#151D22]">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-7 sm:flex-row">
 
-      <h2>Footer</h2>
-  </div>
+        <Link
+          to="/home"
+          className="text-lg font-bold tracking-wide text-white"
+        >
+          Social<span className="text-cyan-400">App</span>
+        </Link>
+
+        <p className="text-center text-sm text-gray-400">
+          Connect, share and stay in touch with your community.
+        </p>
+
+        <p className="text-sm text-gray-500">
+          © {new Date().getFullYear()} Social App. All rights reserved.
+        </p>
+
+      </div>
+    </footer>
+  )
 }
 
 export default Footer

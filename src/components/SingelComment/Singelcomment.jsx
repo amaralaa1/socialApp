@@ -1,17 +1,46 @@
+
 import React from 'react'
 
-export default function Singelcomment({comment}) {
-    // console.log(comment)
-  return<>
-  
-  
-   <header className="flex items-center space-x-3 mb-3 border my-3 p-2 bg-gray-400">
-   <img src= {comment?.commentCreator?.photo} className='w-10 h-10 rounded-full' alt='re'/>
-    <div>
-      <p className="font-semibold">{comment?.commentCreator?.name}</p>
-      <p className="text-xs text-gray-500">{comment?.content}</p>
+export default function Singelcomment({ comment }) {
+  return (
+    <div className="flex items-start gap-3 rounded-xl bg-[#151D22]/70 p-3">
+
+      <div className="h-10 w-10 shrink-0 overflow-hidden rounded-full border border-white/10 bg-gray-700">
+        {comment?.commentCreator?.photo ? (
+          <img
+            src={comment.commentCreator.photo}
+            alt={comment?.commentCreator?.name || 'User'}
+            className="h-full w-full object-cover"
+          />
+        ) : (
+          <div className="flex h-full items-center justify-center font-semibold text-white">
+            {comment?.commentCreator?.name?.charAt(0)?.toUpperCase() || 'U'}
+          </div>
+        )}
+      </div>
+
+      <div className="min-w-0 flex-1">
+        <div className="inline-block max-w-full rounded-2xl bg-[#26343B] px-4 py-3">
+          <h4 className="mb-1 text-sm font-semibold text-white">
+            {comment?.commentCreator?.name || 'User'}
+          </h4>
+
+          {comment?.content && (
+            <p className="break-words text-sm leading-6 text-gray-300">
+              {comment.content}
+            </p>
+          )}
+        </div>
+
+        {comment?.image && (
+          <img
+            src={comment.image}
+            alt="Comment attachment"
+            className="mt-2 max-h-56 max-w-full rounded-xl object-cover"
+          />
+        )}
+      </div>
+
     </div>
-  </header>
-  
-  </>
+  )
 }

@@ -1,4 +1,4 @@
-// import { useState } from 'react'
+
 import './App.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from './components/layouts/Layout';
@@ -7,59 +7,68 @@ import Profile from './components/profile/Profile';
 import Login from './components/Auth/login/Login';
 import Register from './components/Auth/Register/Register';
 import Notfound from './components/Notfound/Notfound';
-// import { CounterContextProvider } from './components/context/Countercontext';
+
 import { UserDataProvider } from './components/context/UserData';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Postdetails from './components/postdetails/Postdetails';
 import { ToastContainer } from 'react-toastify';
+import { useNetworkState } from 'react-use';
 
-
-let queryClient =new QueryClient();
+let queryClient = new QueryClient();
 
 let routing = createBrowserRouter([
- { path: "",  element: <Layout />, children:
-   [
-      { path: 'home',element: (<ProtectedRoute><Home /></ProtectedRoute>)},
-      { path: 'home/postdetails/:id', element: ( <ProtectedRoute><Postdetails/></ProtectedRoute>)},
-      {path: 'profile',element: (<ProtectedRoute><Profile /></ProtectedRoute>)},
-      { path: 'login', element: <Login /> },
-      { path: 'register', element: <Register /> },
-      { path: '*', element: <Notfound /> },
-   ]
- }
+  {
+    path: "",
+    element: <Layout />,
+    children: [
+      {
+        path: 'home',
+        element: <ProtectedRoute><Home /></ProtectedRoute>
+      },
+      {
+        path: 'home/postdetails/:id',
+        element: <ProtectedRoute><Postdetails /></ProtectedRoute>
+      },
+      {
+        path: 'profile',
+        element: <ProtectedRoute><Profile /></ProtectedRoute>
+      },
+      {
+        path: 'login',
+        element: <Login />
+      },
+      {
+        path: 'register',
+        element: <Register />
+      },
+      {
+        path: '*',
+        element: <Notfound />
+      },
+    ]
+  }
 ])
-  
-     
-       
-         
-           
-         
-       
-    
-    
-      
-        
-        
-     
-     
-
-
 
 function App() {
+  let { online } = useNetworkState();
+
   return (
-    <QueryClientProvider client={queryClient}>
-      <UserDataProvider>
-        <ToastContainer/>
-        <RouterProvider router={routing} />
-      </UserDataProvider>
-    </QueryClientProvider>
+    <>
+      {!online && (
+        <div className='h-screen bg-red-500'>
+          <h2>Network Error</h2>
+        </div>
+      )}
+
+      <QueryClientProvider client={queryClient}>
+        <UserDataProvider>
+          <ToastContainer />
+          <RouterProvider router={routing} />
+        </UserDataProvider>
+      </QueryClientProvider>
+    </>
   );
 }
 
 export default App;
-
-
-// <CounterContextProvider>
-//     <RouterProvider router={X}></RouterProvider>
-//   </CounterContextProvider>

@@ -78,8 +78,8 @@ export default function DropDown({id}) {
       </Button>
       <Dropdown.Popover>
         <Dropdown.Menu onAction={(key) =>{
-           console.log(`Selected: ${key}`)
-           if(key== "edit-file" ){
+   console.log(`Selected: ${key}`)
+            if(key== "edit-file" ){
             setmodalCase(true)
 
            }
